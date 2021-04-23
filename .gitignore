@@ -1,4 +1,5 @@
 
+
 ### node ###
 node_modules/
 
@@ -19,3 +20,5 @@ staticfiles/
 ### Pipenv ###
 .env
 
+### Venv ###
+venv/
