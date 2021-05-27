@@ -11,9 +11,6 @@ admin.site.register(User)
 from .models import Subject
 admin.site.register(Subject)
 
-from .models import Member
-admin.site.register(Member)
-
 from .models import Project
 admin.site.register(Project)
 
