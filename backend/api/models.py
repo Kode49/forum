@@ -6,8 +6,6 @@ class User(models.Model):
     Surname = models.TextField()
     bild = models.CharField
     id = models.IntegerField(primary_key=True)
-    Question = models.TextField(foreign_key=True)
-    Comment = models.TextField(foreign_key=True)
     password = models.IntegerField()
     Mark = models.IntegerField()
 
@@ -15,12 +13,11 @@ class User(models.Model):
 class Subject(models.Model):
     id = models.IntegerField(primary_key=True)
     Subject = models.TextField()
-    ProjectId = models.IntegerField(foreign_key=True)
 
 
 class Question(models.Model):
     id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
 
 
@@ -33,7 +30,7 @@ class Project(models.Model):
 
 class Comment(models.Model):
     id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     Comment = models.TextField()
     Modified = models.BooleanField
